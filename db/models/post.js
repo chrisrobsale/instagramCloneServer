@@ -13,7 +13,8 @@ const postSchema = new mongoose.Schema({
     },
     photo:{
         type:String,
-        default:"No photo" //can be changed to a URL of the default photo
+        // default "No photo" //can be changed to a URL of the default photo
+        required:true
     },
     postedBy: {
         type:ObjectId,

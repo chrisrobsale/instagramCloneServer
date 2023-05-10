@@ -15,11 +15,12 @@ router.get('/post', (req,res) => {
 })
 
 router.post('/createpost', requireLogin, (req,res) => {
-    const {title,body} = req.body
-    if(!title || !body) res.status(400).send({error: "Invalid Request"})
+    const {title,body,pic} = req.body
+    if(!title || !body || !pic) res.status(400).send({error: "Invalid Request"})
     const post = new Post({
         title,
         body,
+        photo: pic,
         postedBy:req.user
     })
     post.save().then(result => {
